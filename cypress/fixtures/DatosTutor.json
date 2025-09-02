@@ -1,0 +1,86 @@
+{
+  "nombres": [
+    "Juan",
+    "Maria",
+    "Pedro",
+    "Ana",
+    "Luisa",
+    "Carlos",
+    "Laura",
+    "David",
+    "Sofia",
+    "Diego"
+  ],
+  "apellidos": [
+    "Garcia",
+    "Rodriguez",
+    "Martinez",
+    "Hernandez",
+    "Lopez",
+    "Gonzalez",
+    "Perez",
+    "Sanchez",
+    "Ramirez",
+    "Torres"
+  ],
+  "numeros_telefonicos": [
+    "5512345678",
+    "8198765432",
+    "3323456789",
+    "2228765432",
+    "6643456789",
+    "7224567890",
+    "4428901234",
+    "2295678901",
+    "4442345678",
+    "6248901234"
+  ],
+  "curp": [
+    "GAVM540516HJCRRR02",
+    "CIMA561206HSPSNG00",
+    "VASA420527HSPZNG05",
+    "ROMC680603HSPDRC00",
+    "COVD510819HSPNZM00",
+    "VARE490805HSPZMM01",
+    "EAHF540328HSPSRR08",
+    "GAML320621MSPLXS09",
+    "VASS300811MSPZNS02",
+    "TOGM460130MSPRRR03"
+  ],
+  "empresa": [
+    "Eire",
+    "Photospace",
+    "Youtags",
+    "Cogidoo",
+    "Bluezoom",
+    "Devshare",
+    "Devshare",
+    "Meezzy",
+    "Flashdog",
+    "Zava"
+  ],
+  "puesto": [
+    "Software Consultant",
+    "Director of Sales",
+    "Safety Technician",
+    "Account Coordinator",
+    "Automation Specialist",
+    "Business Systems Development Analyst",
+    "Chemical Engineer",
+    "Administrative Officer",
+    "Cost Accountant",
+    "Information Systems Manager"
+  ],
+  "ocupacion": [
+    "Accounting Analyst",
+    "Tax Accountant",
+    "Staff Accountant",
+    "Database Administrator",
+    "Staff Scientist",
+    "Registered Nurse",
+    "Human Resources Manager",
+    "Technical Writer",
+    "Data Coordinator",
+    "Project Manager"
+  ]
+}

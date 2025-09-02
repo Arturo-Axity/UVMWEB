@@ -1,0 +1,27 @@
+{
+  "id": 2,
+  "email": "montserrat.perezl@axity.com",
+  "fullName": "Montserrat Pérez Lanche ",
+  "name": "Montserrat Pérez Lanche",
+  "lastName": null,
+  "azureId": "27e170e4-c448-4288-8a3b-72f1b01d8174",
+  "noAccount": null,
+  "userResponse": null,
+  "campusSelected": [
+    "SAN RAFAEL"
+  ],
+  "rolesSelected": [
+    "RETEST"
+  ],
+  "status": true,
+  "searched": false,
+  "reason": null,
+  "rols": [
+    {
+      "id": 51,
+      "description": "RETEST",
+      "status": true
+    }
+  ],
+  "tutorId": 0
+}

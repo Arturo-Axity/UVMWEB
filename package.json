@@ -1,0 +1,32 @@
+{
+  "name": "cypress",
+  "version": "1.0.0",
+  "description": "Pruebas Servicios en Linea",
+  "main": "index.js",
+  "scripts": {
+    "test-ci": "cypress run --browser chrome",
+    "test-cicle": "npx cypress run --spec 'cypress/e2e/PortalAlumno/**/*.cy.js'",
+    "test-sanity": "cypress run --spec 'cypress/e2e/PortalAlumno/**/*.cy.js' --env grep=@sanity"
+  },
+  "author": "Servicios Digitales",
+  "license": "ISC",
+  "devDependencies": {
+    "@cypress/grep": "^4.1.1",
+    "@cypress/xpath": "^2.0.3",
+    "@types/cypress": "^1.1.3",
+    "cypress": "^14.2.1",
+    "cypress-file-upload": "^5.0.8",
+    "cypress-mochawesome-reporter": "^3.8.2",
+    "cypress-multi-reporters": "^2.0.4",
+    "cypress-xpath": "^2.0.1",
+    "mochawesome": "^7.1.3",
+    "mochawesome-merge": "^4.4.1",
+    "mochawesome-report-generator": "^6.2.0",
+    "puppeteer-core": "^24.4.0"
+  },
+  "dependencies": {
+    "chromium": "^3.0.3",
+    "puppeteer": "^24.1.1",
+    "stream": "^0.0.3"
+  }
+}
