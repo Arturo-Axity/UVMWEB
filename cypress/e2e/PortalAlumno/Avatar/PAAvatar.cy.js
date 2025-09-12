@@ -5,7 +5,7 @@ describe(" Acceso al Portal Alumno ", () => {
   const master = new AvatarPO();
   master.visitHome();
 
-  it("Avatar - Perfil @sanity", () => {
+  it("Avatar - Perfil @sanity @sanity @happyPath", () => {
     master.perfil(1500);
   });
 });

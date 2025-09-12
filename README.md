@@ -1,3 +1,83 @@
+# 🎓 UVM Web – Automatización de Pruebas E2E con Cypress
+
+Este proyecto automatiza los principales flujos del portal **UVM Web**, utilizando **Cypress** y una arquitectura modular basada en Page Objects. Las pruebas se ejecutan con soporte para reportería avanzada (Mochawesome), soporte XPath y estructura separada por módulos funcionales.
+
+---
+
+## 🧩 Tecnologías Utilizadas
+
+- **Cypress** ^15.0.0
+- **Node.js** ^22.x
+- `@cypress/grep` – Filtrado de tests por etiquetas
+- `cypress-mochawesome-reporter` – Reportes HTML/JSON
+- `cypress-xpath` – Soporte para selectores XPath
+- `mochawesome` y herramientas asociadas (`merge`, `report-generator`)
+- `puppeteer` y `chromium` – Automatización opcional
+- Arquitectura: **Page Object Model (POM)**
+
+---
+
+## 📁 Estructura del Proyecto
+
+```plaintext
+UVMWEB/
+│
+├── cypress.config.js               # Configuración principal de Cypress
+├── package.json                    # Dependencias y scripts
+├── README.md                       # Este documento
+│
+├── cypress/
+│   ├── e2e/                        # Casos de prueba por módulo
+│   │   ├── login.cy.js
+│   │   ├── PortalAlumno/
+│   │   │   ├── AgendaAlumno/
+│   │   │   ├── AvanceAcademico/
+│   │   │   └── ... (hasta TerminosCondiciones)
+│   │   └── Administrador/         # Módulos administrativos
+│   │
+│   ├── fixtures/                   # Archivos estáticos o datos para pruebas
+│   ├── support/
+│   │   ├── commands.js             # Comandos personalizados
+│   │   ├── e2e.js                  # Soporte e2e (incluye plugins)
+│   │   └── pageObjectsM/          # Page Objects por módulo
+│   │
+│   ├── downloads/                 # Descargas automáticas (PDFs, etc.)
+│   ├── screenshots/               # Capturas de pantalla por prueba
+│   └── reports/html/             # Reportes Mochawesome HTML y JSON
+
+
+▶️ Cómo Ejecutar las Pruebas
+1. Instala las dependencias
+npm install
+
+2. Ejecuta todas las pruebas
+npm run test
+
+"scripts": {
+  "test": "cypress run",
+  "test:login": "cypress run --spec 'cypress/e2e/login.cy.js'",
+  "test:portal": "cypress run --spec 'cypress/e2e/PortalAlumno/**/*.cy.js'",
+  "test:admin": "cypress run --spec 'cypress/e2e/Administrador/**/*.cy.js'",
+  "report:merge": "mochawesome-merge cypress/reports/html/.jsons/*.json > mochawesome-report.json",
+  "report:generate": "marge mochawesome-report.json --reportDir cypress/reports/html"
+}
+
+
+| Etiqueta      | Descripción                                                               |
+| ------------- | ------------------------------------------------------------------------- |
+| `@sanity`     | Pruebas básicas para validar que el sistema responde y carga lo esencial. |
+| `@smoke`      | Pruebas críticas del flujo principal de negocio.                          |
+| `@regression` | Pruebas completas que cubren funcionalidad amplia.                        |
+| `@critical`   | Pruebas de funciones esenciales que si fallan, detienen producción.       |
+| `@happyPath`  | Flujo ideal, sin errores ni condiciones extremas.                         |
+| `@negative`   | Casos con datos inválidos, errores o flujos inesperados.                  |
+
+
+👤 Autor
+
+Servicios Digitales
+License: ISC
+----------------------------------------------------------------
 ![image](https://www.cypress.io/static/33498b5f95008093f5f94467c61d20ab/c0bf4/cypress-logo.webp)
 
 [Cypress](https://www.cypress.io/) requiere [Node.js](https://nodejs.org/) v14+ para funcionar correctamente.
