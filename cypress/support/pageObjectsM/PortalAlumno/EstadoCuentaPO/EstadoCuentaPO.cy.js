@@ -35,7 +35,7 @@ class EstadoCuentaPO {
     cy.wait(tiempo);
     cy.get("._textTitle_t4jyf_30").should("have.text", "Estado de cuenta");
     cy.wait(tiempo);
-    cy.screenshot('Estado de cuenta - Ver estado', { capture: "fullPage" });
+    cy.screenshot("Estado de cuenta - Ver estado", { capture: "fullPage" });
   }
 
   verPagos7(t) {
@@ -61,9 +61,11 @@ class EstadoCuentaPO {
     cy.wait(tiempo);
     cy.get("._textTitle_t4jyf_30").should("have.text", "Estado de cuenta");
     cy.wait(tiempo);
-    cy.get(".ButtonWrapper-sc-bjlgs8-0").click({ force: true });
+    cy.get("button").click({ force: true });
     cy.wait(tiempo);
-    cy.screenshot('Estado de cuenta - Ver pagos Banner 7', { capture: "fullPage" });
+    cy.screenshot("Estado de cuenta - Ver pagos Banner 7", {
+      capture: "fullPage",
+    });
   }
 
   verPagos9(t) {
@@ -89,9 +91,11 @@ class EstadoCuentaPO {
     cy.wait(tiempo);
     cy.get("._textTitle_t4jyf_30").should("have.text", "Estado de cuenta");
     cy.wait(tiempo);
-    cy.get(".ButtonWrapper-sc-bjlgs8-0").click({ force: true });
+    cy.get("button").click({ force: true });
     cy.wait(tiempo);
-    cy.screenshot('Estado de cuenta - Ver pagos Banner 9', { capture: "fullPage" });
+    cy.screenshot("Estado de cuenta - Ver pagos Banner 9", {
+      capture: "fullPage",
+    });
   }
 
   historialPagos(t) {
@@ -119,7 +123,9 @@ class EstadoCuentaPO {
     cy.wait(tiempo);
     cy.xpath("//span[contains(.,'COLEGIATURA/PARC  2  NC')]").click();
     cy.wait(tiempo);
-    cy.screenshot('Estado de cuenta - Historial de pagos', { capture: "fullPage" });
+    cy.screenshot("Estado de cuenta - Historial de pagos", {
+      capture: "fullPage",
+    });
   }
 
   historialFiltrado(t) {
@@ -149,7 +155,9 @@ class EstadoCuentaPO {
     cy.get('[data-testid="filterId"]').click();
     cy.xpath("(//div[contains(.,'Últimos 3 meses')])[6]").click();
     cy.wait(tiempo);
-    cy.screenshot('Estado de cuenta - Filtrar historial de pagos ', { capture: "fullPage" });
+    cy.screenshot("Estado de cuenta - Filtrar historial de pagos ", {
+      capture: "fullPage",
+    });
   }
 
   metodosPago(t) {
@@ -175,7 +183,7 @@ class EstadoCuentaPO {
     cy.wait(tiempo);
     cy.get("._textTitle_t4jyf_30").should("have.text", "Estado de cuenta");
     cy.wait(tiempo);
-    cy.get(".ButtonWrapper-sc-bjlgs8-0").click({ force: true });
+    cy.get("button").click({ force: true });
     cy.wait(tiempo);
     cy.get(".MuiTypography-root").click();
     cy.xpath("//span[contains(.,'Continuar')]").click();
@@ -187,7 +195,9 @@ class EstadoCuentaPO {
       "._paymentSelection_154qa_1 > ._contentBreadcrumb_t4jyf_1 > ._contentTitle_t4jyf_19 > ._titleContainer_t4jyf_25 > ._textTitle_t4jyf_30"
     ).should("have.text", "Elige tu método de pago");
     cy.wait(tiempo);
-    cy.screenshot('Estado de cuenta - Metodos de pago ', { capture: "fullPage" });
+    cy.screenshot("Estado de cuenta - Metodos de pago ", {
+      capture: "fullPage",
+    });
   }
 
   codi(t) {
@@ -213,9 +223,11 @@ class EstadoCuentaPO {
     cy.wait(tiempo);
     cy.get("._textTitle_t4jyf_30").should("have.text", "Estado de cuenta");
     cy.wait(tiempo);
-    cy.get(".ButtonWrapper-sc-bjlgs8-0").click({ force: true });
+    cy.get("button").click({ force: true });
     cy.wait(tiempo);
-    cy.get(':nth-child(2) > ._centerLabels_1yunh_8 > ._primaryLabel_1yunh_13').click();
+    cy.get(
+      ":nth-child(2) > ._centerLabels_1yunh_8 > ._primaryLabel_1yunh_13"
+    ).click();
     cy.xpath("//span[contains(.,'Continuar')]").click();
     cy.wait(tiempo);
     cy.get("._textTitle_t4jyf_30").should("have.text", "Resumen de pago");
@@ -229,7 +241,7 @@ class EstadoCuentaPO {
     cy.wait(3500);
     cy.get("._textTitle_t4jyf_30").should("have.text", "Codi");
     cy.wait(tiempo);
-    cy.screenshot('Estado de cuenta - CoDi ', { capture: "fullPage" });
+    cy.screenshot("Estado de cuenta - CoDi ", { capture: "fullPage" });
   }
 
   verReferencia(t) {
@@ -259,7 +271,9 @@ class EstadoCuentaPO {
     );
     cy.xpath("//span[contains(.,'Referencia bancaria')]").click();
     cy.wait(5500);
-    cy.screenshot('Estado de cuenta - Referencia de pago ', { capture: "fullPage" });
+    cy.screenshot("Estado de cuenta - Referencia de pago ", {
+      capture: "fullPage",
+    });
   }
 
   descargaReferencia(t) {
@@ -289,7 +303,9 @@ class EstadoCuentaPO {
     cy.wait(tiempo);
     cy.get('[data-testid="btnDownloadReference"]').click();
     cy.wait(3500);
-    cy.screenshot('Estado de cuenta - Descarga de referencia de pago', { capture: "fullPage" });
+    cy.screenshot("Estado de cuenta - Descarga de referencia de pago", {
+      capture: "fullPage",
+    });
   }
 } //final
 

@@ -1,7 +1,7 @@
 /// <reference types='cypress' />
 import InicioPO from "../../../support/pageObjectsM/PortalAlumno/InicioPO/InicioPO.cy.js";
 
-describe(" Acceso al Portal Alumno ", () => {
+describe(" Acceso al Portal Alumno @alumno", () => {
   const master = new InicioPO();
   master.visitHome();
 
@@ -9,11 +9,11 @@ describe(" Acceso al Portal Alumno ", () => {
     master.cambiarCarrera(2500);
   });
 
-  it("Inicio - Tap Agenda @test", () => {
+  it("Inicio - Tap Agenda @sanity @smoke", () => {
     master.tapAgenda(2500);
   });
 
-  it("Inicio - Tap Avance Académico ", () => {
+  it("Inicio - Tap Avance Académico @sanity @smoke", () => {
     master.tapAvanceAca(2500);
   });
 });

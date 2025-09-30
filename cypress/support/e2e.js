@@ -20,5 +20,5 @@ import "./commands";
 // require('./commands')
 import "cypress-mochawesome-reporter/register";
 require("@cypress/xpath");
-import registerCypressGrep from '@cypress/grep';
-registerCypressGrep(); 
+import registerCypressGrep from "@cypress/grep";
+registerCypressGrep();

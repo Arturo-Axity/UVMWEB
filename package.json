@@ -11,9 +11,7 @@
     "test-regression": "cypress run --spec 'cypress/e2e/PortalAlumno/**/*.cy.js' --env grep=@regression",
     "test-critical": "cypress run --spec 'cypress/e2e/PortalAlumno/**/*.cy.js' --env grep=@critical",
     "test-happy": "cypress run --spec 'cypress/e2e/PortalAlumno/**/*.cy.js' --env grep=@happyPath",
-    "test-negative": "cypress run --spec 'cypress/e2e/PortalAlumno/**/*.cy.js' --env grep=@negative",
-
-    "test-agenda-sanity": "cypress run --spec 'cypress/e2e/PortalAlumno/AgendaAlumno/PAAgendaAlumno.cy.js' --env grep=sanity"
+    "test-negative": "cypress run --spec 'cypress/e2e/PortalAlumno/**/*.cy.js' --env grep=@negative"
   },
   "author": "Servicios Digitales",
   "license": "ISC",
@@ -21,6 +19,7 @@
     "@cypress/grep": "^4.1.1",
     "@cypress/xpath": "^2.0.3",
     "@types/cypress": "^1.1.3",
+    "cypress": "^14.2.1",
     "cypress-file-upload": "^5.0.8",
     "cypress-mochawesome-reporter": "^3.8.2",
     "cypress-multi-reporters": "^2.0.4",
@@ -32,7 +31,6 @@
   },
   "dependencies": {
     "chromium": "^3.0.3",
-    "cypress": "^15.0.0",
     "puppeteer": "^24.1.1",
     "stream": "^0.0.3"
   }
