@@ -6,7 +6,12 @@
   "scripts": {
     "test-ci": "cypress run --browser chrome",
     "test-cicle": "npx cypress run --spec 'cypress/e2e/PortalAlumno/**/*.cy.js'",
-    "test-sanity": "cypress run --spec 'cypress/e2e/PortalAlumno/**/*.cy.js' --env grep=@sanity"
+    "test-sanity": "cypress run --spec 'cypress/e2e/PortalAlumno/**/*.cy.js' --env grep=@sanity",
+    "test-smoke": "cypress run --spec 'cypress/e2e/PortalAlumno/**/*.cy.js' --env grep=@smoke",
+    "test-regression": "cypress run --spec 'cypress/e2e/PortalAlumno/**/*.cy.js' --env grep=@regression",
+    "test-critical": "cypress run --spec 'cypress/e2e/PortalAlumno/**/*.cy.js' --env grep=@critical",
+    "test-happy": "cypress run --spec 'cypress/e2e/PortalAlumno/**/*.cy.js' --env grep=@happyPath",
+    "test-negative": "cypress run --spec 'cypress/e2e/PortalAlumno/**/*.cy.js' --env grep=@negative"
   },
   "author": "Servicios Digitales",
   "license": "ISC",

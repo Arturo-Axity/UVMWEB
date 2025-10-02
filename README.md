@@ -1,117 +1,97 @@
+# 🎓 UVM Web – Automatización de Pruebas E2E con Cypress
+
+Este proyecto automatiza los principales flujos del portal **UVM Web**, utilizando **Cypress** y una arquitectura modular basada en Page Objects. Las pruebas se ejecutan con soporte para reportería avanzada (Mochawesome), soporte XPath y estructura separada por módulos funcionales.
+
+---
+
+## 🧩 Tecnologías Utilizadas
+
+- **Cypress** ^15.0.0
+- **Node.js** ^22.x
+- `@cypress/grep` – Filtrado de tests por etiquetas
+- `cypress-mochawesome-reporter` – Reportes HTML/JSON
+- `cypress-xpath` – Soporte para selectores XPath
+- `mochawesome` y herramientas asociadas (`merge`, `report-generator`)
+- `puppeteer` y `chromium` – Automatización opcional
+- Arquitectura: **Page Object Model (POM)**
+
+---
+
+## 📁 Estructura del Proyecto
+
+cypress
+│
+├───downloads # Descargas automáticas (PDFs, etc.)
+│
+├───e2e # Pruebas E2E (End-to-End)
+│ ├───Administrador # Módulos del Portal Admin
+│ ├───PortalAlumno # Módulos del Portal Alumno
+│ │ ├───AgendaAlumno # Submódulo Agenda Alumno
+│ │ ├───AvanceAcademico # Submódulo Avance Académico
+│ │ └───... # Otros submódulos del Portal Alumno (Avatar,Ayuda, etc...)
+│
+├───fixtures # Archivos estáticos o datos de prueba
+│
+├───reports # Reportes (Mochawesome HTML y JSON)
+│
+├───screenshots # Capturas de pantalla por prueba
+│
+└───support # Archivos de soporte (Page Objects, comandos personalizados, etc.)
+├───pageObjects # Page Objects por módulo
+│ ├───Administrador # Page Objects del Portal Admin
+│ └───PortalAlumno # Page Objects del Portal Alumno
+│ ├───AgendaAlumnoPO # Page Object Agenda Alumno
+│ ├───AvanceAcademicoPO # Page Object Avance Académico
+│ └───... # Otros Page Objects (AvatarPO, AyudaPO, etc...)
+│
+├───commands.js # Comandos personalizados de Cypress
+└───e2e.js # Configuración y hooks globales E2E (incluye plugins)
+│
+├───node_modules # Dependencias de npm
+│
+├───cypress.config.js # Configuración principal de Cypress
+├───package.json # Dependencias y scripts del proyecto
+└───README.md # Documentación del proyecto
+
+▶️ Cómo Ejecutar las Pruebas
+
+1. Instalar las dependencias
+   npm install
+
+1. Ejecuta todas las pruebas
+   npm run test
+
+"scripts": {
+"test-ci": "cypress run --browser chrome",
+"test-cicle": "npx cypress run --spec 'cypress/e2e/PortalAlumno/**/\*.cy.js'",
+"test-sanity": "cypress run --spec 'cypress/e2e/PortalAlumno/**/_.cy.js' --env grep=@sanity",
+"test-smoke": "cypress run --spec 'cypress/e2e/PortalAlumno/\*\*/_.cy.js' --env grep=@smoke",
+"test-regression": "cypress run --spec 'cypress/e2e/PortalAlumno/**/\*.cy.js' --env grep=@regression",
+"test-critical": "cypress run --spec 'cypress/e2e/PortalAlumno/**/_.cy.js' --env grep=@critical",
+"test-happy": "cypress run --spec 'cypress/e2e/PortalAlumno/\*\*/_.cy.js' --env grep=@happyPath",
+"test-negative": "cypress run --spec 'cypress/e2e/PortalAlumno/\*_/_.cy.js' --env grep=@negative",
+}
+
+| Etiqueta      | Descripción                                                               |
+| ------------- | ------------------------------------------------------------------------- |
+| `@sanity`     | Pruebas básicas para validar que el sistema responde y carga lo esencial. |
+| `@smoke`      | Pruebas críticas del flujo principal de negocio.                          |
+| `@regression` | Pruebas completas que cubren funcionalidad amplia.                        |
+| `@critical`   | Pruebas de funciones esenciales que si fallan, detienen producción.       |
+| `@happyPath`  | Flujo ideal, sin errores ni condiciones extremas.                         |
+| `@negative`   | Casos con datos inválidos, errores o flujos inesperados.                  |
+
+👤 Autor
+
+Heidegger Antonio Robles Inda
+Arturo López Velázquez
+License: ISC
+
+---
+
 ![image](https://www.cypress.io/static/33498b5f95008093f5f94467c61d20ab/c0bf4/cypress-logo.webp)
 
 [Cypress](https://www.cypress.io/) requiere [Node.js](https://nodejs.org/) v14+ para funcionar correctamente.
-
-## Creación de un proyecto vacío
-
-Crear un proyecto [npm](https://www.npmjs.com/) vacío.
-
-```sh
-npm init
-```
-
-Instalar [Cypress](https://www.cypress.io/) en el proyecto [npm](https://www.npmjs.com/).
-
-```sh
-npm install cypress —-save-dev
-```
-
-Generar un archivo JSON vacío llamado **cypress.json**.
-
-```sh
-{
-}
-```
-
-## Utilizar el proyecto existente
-
-Restaurar los paquetes [npm](https://www.npmjs.com/).
-
-```sh
-npm install
-```
-
-## Ejecutar Cypress
-
-### Modo grafico
-
-Ejecutar en la carpeta del proyecto
-
-```sh
-npx cypress open
-```
-
-o
-
-```sh
-./node_modules/.bin/cypress open
-```
-
-Crear alias
-
-En la seccion **scripts** del archivo **package.json** agregar
-
-```sh
-"cy": "cypress open",
-"cy:*": "cypress run"
-```
-
-Ejecutar alias
-
-```sh
-$ npm run cy
-$ npm run cy:run
-```
-
-**Ejemplo de prueba**
-
-```sh
-describe('primeraPrueba', () => {
-
-    it('seacrh', () => {
-
-        cy.visit('http://automationpractice.com/index.php');
-
-        cy.get('#search_query_top').type('dress');
-        cy.get('#searchbox > .btn').click();
-        cy.get('.lighter').contains('"dress"');
-    })
-})
-```
-
-### Modo consola
-
-_(Todos los comandos se deben ejecutar en la carpeta del proyecto)_
-
-**Ejecutar todas las pruebas del proyecto**
-
-```sh
-$ npx cypress run
-```
-
-**Ejecutar todas las pruebas de una carpeta especifica**
-
-```sh
-$ npx cypress run --spec "cypress/integration/*.js"
-```
-
-**Ejecutar una prueba especifica**
-
-```sh
-$ npx cypress run --spec "cypress/integration/one.spec.js"
-```
-
-**Ejecutar en un navegador especifico**
-
-```sh
-$ npx cypress run --spec "cypress/integration/*.js" --browser chrome
-```
-
-**Ejecutar y guardar salida de la consola en un archivo**
-
-```sh
-$ npx cypress run> ./cypress/fileResult/$(date +'%Y%m%d%I%M%S').txt
-```
 
 ## DOCKER
 
