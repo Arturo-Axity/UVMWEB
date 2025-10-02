@@ -6,7 +6,7 @@ describe(" Acceso al Portal Alumno @alumno", () => {
   const master = new ExpedienteDPO();
   master.visitHome();
 
-  it(" Expedientes Digitales - Ver expedientes @sanity", () => {
+  it(" Expedientes Digitales - Ver expedientes del alumno @sanity", () => {
     master.verExpedientes(2500);
   });
 });
