@@ -1,7 +1,7 @@
 /// <reference types='cypress' />
 
 describe("Servicio de notificaciones PUSH generico", () => {
-  it("Prueba de API - Envio de notificacion", () => {
+  it("Prueba de API - Envio de notificacion @sanity @happyPath @smoke", () => {
     cy.request({
       method: "POST",
       url: "https://laureateqa.axity.com/api/sdig/uvm/massive/notification/generic",
